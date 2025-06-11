@@ -87,8 +87,10 @@
 <body>
   <h1 id="main-title">載入中...</h1>
   <div id="content"></div>
-  <a href="../index.html" class="back">← 返回首頁</a>
-
+<div style="display: flex; justify-content: center; gap: 24px; margin-top: 40px;">
+    <a href="../index.html" class="back" style="margin-top: 0;">← 返回首頁</a>
+    <a href="javascript:history.back()" class="back" style="margin-top: 0;">← 上一頁</a>
+</div>
   <script>
     const params = new URLSearchParams(window.location.search);
     const subject = params.get("subject");
