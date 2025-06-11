@@ -8,7 +8,7 @@ const pageData = {
     },
     {
       name: "廖文峯 2022 年期中考題",
-      path: "files/general_Chemistry/midterm1_2022.pdf"
+      path: "files/general_Chemistry/Figure_1.png"
     }
   ]
 };
