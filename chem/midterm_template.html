@@ -100,7 +100,7 @@
       document.getElementById("main-title").innerText = "⚠️ 找不到科目或試別資訊";
     } else {
       const script = document.createElement("script");
-      script.src = `data/${subject}_${exam}.js`;
+      script.src = `data/${subject}/${subject}_${exam}.js`;
 
       script.onload = () => {
         document.title = pageData.title;

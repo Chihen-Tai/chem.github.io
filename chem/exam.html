@@ -20,7 +20,7 @@
       if (titleEl) titleEl.innerText = "⚠️ 找不到科目資訊";
     } else {
       const script = document.createElement("script");
-      script.src = `data/${subject}.js`;
+      script.src = `data/${subject}/${subject}.js`;
 
       script.onload = () => {
         document.title = pageData.title;
