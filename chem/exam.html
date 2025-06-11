@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title id="title">載入中...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../common/style.css">
+</head>
+<body>
+  <h1 id="main-title">載入中...</h1>
+  <div id="content"></div>
+  <a href="index.html" class="back">← 返回首頁</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const subject = params.get("subject");
+
+    if (!subject) {
+      const titleEl = document.getElementById("main-title");
+      if (titleEl) titleEl.innerText = "⚠️ 找不到科目資訊";
+    } else {
+      const script = document.createElement("script");
+      script.src = `data/${subject}.js`;
+
+      script.onload = () => {
+        document.title = pageData.title;
+        const titleEl = document.getElementById("main-title");
+        if (titleEl) titleEl.innerText = pageData.title;
+
+        const contentDiv = document.getElementById("content");
+        if (!contentDiv) return;
+
+        if (!pageData.semesters || pageData.semesters.length === 0) {
+          contentDiv.innerHTML = "<p>⚠️ 尚無資料可顯示</p>";
+          return;
+        }
+
+        pageData.semesters.forEach(sem => {
+          const semTitle = document.createElement("div");
+          semTitle.className = "semester-title";
+          semTitle.innerText = sem.name;
+
+          const ul = document.createElement("ul");
+          sem.files.forEach(f => {
+            const li = document.createElement("li");
+            li.innerHTML = `<a href="${subject}/${f.file}">📄 ${f.name}</a>`;
+            ul.appendChild(li);
+          });
+
+          contentDiv.appendChild(semTitle);
+          contentDiv.appendChild(ul);
+        });
+      };
+
+      script.onerror = () => {
+        const titleEl = document.getElementById("main-title");
+        if (titleEl) titleEl.innerText = "⚠️ 找不到資料檔案";
+      };
+
+      document.head.appendChild(script);
+    }
+  </script>
+</body>
+</html>
