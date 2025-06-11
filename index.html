@@ -25,8 +25,8 @@
     }
 
     li {
-      margin: 20px 0;
-      font-size: 1.2em;
+      margin: 10px 0;
+      font-size: 1.1em;
     }
 
     a {
@@ -38,66 +38,167 @@
     a:hover {
       text-decoration: underline;
     }
+
+    .section {
+      margin-bottom: 15px;
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .section-header {
+      padding: 12px 16px;
+      background: #ecf0f1;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .section-header:hover {
+      background: #d0e6f7;
+    }
+
+    .section-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding-left: 16px;
+      background: #fdfdfd;
+    }
+
+    .section-content.open {
+      padding: 12px 16px;
+      max-height: 1000px;
+    }
+
+    .arrow {
+      transition: transform 0.3s ease;
+    }
+
+    .arrow.rotate {
+      transform: rotate(90deg);
+    }
   </style>
 </head>
 
 <body>
   <h1>🔬 清大化學系考古題</h1>
-  <p style="text-align:center; margin-top:40px; color:#555;">
-    有任何bug或資料想提供 請密 microdaery@gapp.nthu.edu.tw
-    或是你可以直接clone一份或想跟我merge也可以 哈哈
+  <p style="text-align:center; margin-top:20px; color:#555;">
+    有任何 bug 或資料想提供請寄 <b>microdaery@gapp.nthu.edu.tw</b><br>也歡迎 clone 或 merge 哈哈
   </p>
   <p style="text-align:center; margin-top:20px; color:#555;">
-    原文書電子檔和解答我不敢放 自己找吧 哈哈
+    原文書電子檔和解答我不敢放，自己找吧 哈哈
   </p>
-  <ul>
-    <li><strong>大一必修</strong>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span><strong>大一必修</strong></span><span class="arrow">▶</span>
+    </div>
+    <div class="section-content">
       <ul>
         <li><a href="chem/general_chem/general_chem.html">📘 普通化學</a></li>
         <li><a href="math/calculus/calculus.html">📙 微積分</a></li>
         <li><a href="chem/physics/physics.html">📕 普通物理</a></li>
       </ul>
-    </li>
-    <li><strong>化學系必修</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span><strong>化學系必修</strong></span><span class="arrow">▶</span>
+    </div>
+    <div class="section-content">
       <ul>
-        <!-- <li><a href="chem/general_chem/general_chem.html">📘 普通化學</a></li>  -->
         <li><a href="physical_chem.html">📙 物理化學</a></li>
         <li><a href="inorganic_chem.html">📕 無機化學</a></li>
         <li><a href="analytical_chem.html">📗 分析化學</a></li>
         <li><a href="math.html">📐 應用數學</a></li>
       </ul>
-    </li>
-    <li><strong>化學系選修</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span><strong>化學系選修</strong></span><span class="arrow">▶</span>
+    </div>
+    <div class="section-content">
       <ul>
         <li><a href="#">選修課程1</a></li>
         <li><a href="#">選修課程2</a></li>
       </ul>
-    </li>
-    <li><strong>化學所課程</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span><strong>化學所課程</strong></span><span class="arrow">▶</span>
+    </div>
+    <div class="section-content">
       <ul>
         <li><a href="#">研究所課程1</a></li>
         <li><a href="#">研究所課程2</a></li>
       </ul>
-    </li>
-    <li><strong>物理系</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span><strong>化學系實驗</strong></span><span class="arrow">▶</span>
+    </div>
+    <div class="section-content">
+      <ul>
+        <li><a href="chem/chem_lab/chem_lab.html">🧪 化學實驗</a></li>
+        <li><a href="chem/physical_chem_lab/physical_chem_lab.html">🧪 物理化學實驗</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span><strong>物理系</strong></span><span class="arrow">▶</span>
+    </div>
+    <div class="section-content">
       <ul>
         <li><a href="#">物理系課程1</a></li>
         <li><a href="#">物理系課程2</a></li>
       </ul>
-    </li>
-    <li><strong>資工系</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span><strong>資工系</strong></span><span class="arrow">▶</span>
+    </div>
+    <div class="section-content">
       <ul>
         <li><a href="#">資工系課程1</a></li>
         <li><a href="#">資工系課程2</a></li>
       </ul>
-    </li>
-    <li><strong>通識</strong>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span><strong>通識</strong></span><span class="arrow">▶</span>
+    </div>
+    <div class="section-content">
       <ul>
         <li><a href="math.html">📐 通識</a></li>
       </ul>
-    </li>
-  </ul>
+    </div>
+  </div>
 
+  <script>
+    function toggleSection(header) {
+      const content = header.nextElementSibling;
+      const arrow = header.querySelector('.arrow');
+      content.classList.toggle('open');
+      arrow.classList.toggle('rotate');
+    }
+  </script>
 </body>
 
 </html>
