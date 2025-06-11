@@ -78,16 +78,21 @@
     }
 
     .section-content {
-      max-height: 0;
+      height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease-in-out, padding 0.4s ease;
-      padding-left: 20px;
+      padding: 0 20px;
       background: #fdfdfd;
+      transition: height 0.25s ease, padding 0.25s ease;
     }
 
     .section-content.open {
-      padding: 14px 20px;
-      max-height: 1000px;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+
+    .section-content ul {
+      padding: 0;
+      margin: 0;
     }
 
     .arrow {
@@ -222,8 +227,33 @@
     function toggleSection(header) {
       const content = header.nextElementSibling;
       const arrow = header.querySelector('.arrow');
-      content.classList.toggle('open');
-      arrow.classList.toggle('rotate');
+
+      const isOpen = content.classList.contains('open');
+
+      if (isOpen) {
+        content.style.height = content.scrollHeight + 'px'; // 先設定高度
+        requestAnimationFrame(() => {
+          content.style.height = '0px';
+        });
+        content.classList.remove('open');
+        arrow.classList.remove('rotate');
+      } else {
+        content.classList.add('open');
+        content.style.height = 'auto';
+        const height = content.scrollHeight + 'px';
+        content.style.height = '0px';
+        requestAnimationFrame(() => {
+          content.style.height = height;
+        });
+        arrow.classList.add('rotate');
+      }
+
+      content.addEventListener('transitionend', function handler() {
+        if (content.classList.contains('open')) {
+          content.style.height = 'auto'; // 清除高度限制
+        }
+        content.removeEventListener('transitionend', handler);
+      });
     }
   </script>
 </body>
