@@ -5,18 +5,28 @@
   <meta charset="UTF-8">
   <title>清大化學系考古</title>
   <style>
+    :root {
+      --main-bg: #f3f6f9;
+      --card-bg: #ffffff;
+      --section-hover: #d4edf4;
+      --header-bg: #e2eff5;
+      --primary-text: #2c3e50;
+      --link-color: #0077b6;
+    }
+
     body {
       font-family: "Noto Sans TC", Arial, sans-serif;
-      background: #f7f9fc;
+      background: var(--main-bg);
       padding: 40px;
       max-width: 800px;
       margin: auto;
+      color: var(--primary-text);
     }
 
     h1 {
       text-align: center;
       margin-bottom: 40px;
-      color: #2c3e50;
+      color: var(--primary-text);
     }
 
     ul {
@@ -31,7 +41,7 @@
 
     a {
       text-decoration: none;
-      color: #2980b9;
+      color: var(--link-color);
       font-weight: bold;
     }
 
@@ -40,16 +50,22 @@
     }
 
     .section {
-      margin-bottom: 15px;
-      border-radius: 8px;
-      background: #ffffff;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      background: var(--card-bg);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
     }
 
     .section-header {
-      padding: 12px 16px;
-      background: #ecf0f1;
+      padding: 14px 20px;
+      background: linear-gradient(90deg, #d0ecf9, #eaf6fb);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -58,19 +74,19 @@
     }
 
     .section-header:hover {
-      background: #d0e6f7;
+      background: var(--section-hover);
     }
 
     .section-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease;
-      padding-left: 16px;
+      transition: max-height 0.4s ease-in-out, padding 0.4s ease;
+      padding-left: 20px;
       background: #fdfdfd;
     }
 
     .section-content.open {
-      padding: 12px 16px;
+      padding: 14px 20px;
       max-height: 1000px;
     }
 
@@ -81,21 +97,31 @@
     .arrow.rotate {
       transform: rotate(90deg);
     }
+
+    .note {
+      text-align: center;
+      margin-top: 20px;
+      color: #555;
+    }
+
+    .note b {
+      color: #555;
+    }
   </style>
 </head>
 
 <body>
   <h1>🔬 清大化學系考古題</h1>
-  <p style="text-align:center; margin-top:20px; color:#555;">
+  <p class="note">
     有任何 bug 或資料想提供請寄 <b>microdaery@gapp.nthu.edu.tw</b><br>也歡迎 clone 或 merge 哈哈
   </p>
-  <p style="text-align:center; margin-top:20px; color:#555;">
+  <p class="note">
     原文書電子檔和解答我不敢放，自己找吧 哈哈
   </p>
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>大一必修</strong></span><span class="arrow">▶</span>
+      <span><strong>📚 大一必修</strong></span><span class="arrow">▶</span>
     </div>
     <div class="section-content">
       <ul>
@@ -108,7 +134,7 @@
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>化學系必修</strong></span><span class="arrow">▶</span>
+      <span><strong>🧪 化學系必修</strong></span><span class="arrow">▶</span>
     </div>
     <div class="section-content">
       <ul>
@@ -123,7 +149,7 @@
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>化學系選修</strong></span><span class="arrow">▶</span>
+      <span><strong>🎓 化學系選修</strong></span><span class="arrow">▶</span>
     </div>
     <div class="section-content">
       <ul>
@@ -135,7 +161,7 @@
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>化學所課程</strong></span><span class="arrow">▶</span>
+      <span><strong>🏛️ 化學所課程</strong></span><span class="arrow">▶</span>
     </div>
     <div class="section-content">
       <ul>
@@ -147,7 +173,7 @@
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>化學系實驗</strong></span><span class="arrow">▶</span>
+      <span><strong>🔬 化學系實驗</strong></span><span class="arrow">▶</span>
     </div>
     <div class="section-content">
       <ul>
@@ -159,7 +185,7 @@
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>物理系</strong></span><span class="arrow">▶</span>
+      <span><strong>📘 物理系</strong></span><span class="arrow">▶</span>
     </div>
     <div class="section-content">
       <ul>
@@ -171,7 +197,7 @@
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>資工系</strong></span><span class="arrow">▶</span>
+      <span><strong>💻 資工系</strong></span><span class="arrow">▶</span>
     </div>
     <div class="section-content">
       <ul>
@@ -183,11 +209,11 @@
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>通識</strong></span><span class="arrow">▶</span>
+      <span><strong>🌱 通識</strong></span><span class="arrow">▶</span>
     </div>
     <div class="section-content">
       <ul>
-        <li><a href="math.html">📐 通識</a></li>
+        <li><a href="math.html">📐 通識課程</a></li>
       </ul>
     </div>
   </div>
