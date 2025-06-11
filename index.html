@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>清大化學系考古</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
       --main-bg: #f3f6f9;
@@ -21,32 +22,37 @@
       max-width: 800px;
       margin: auto;
       color: var(--primary-text);
+      animation: fadeInPage 0.5s ease-out;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       color: var(--primary-text);
     }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
+    .note {
+      text-align: center;
+      margin-top: 10px;
+      color: #555;
     }
 
-    li {
-      margin: 10px 0;
-      font-size: 1.1em;
+    .note b {
+      color: #555;
     }
 
-    a {
-      text-decoration: none;
-      color: var(--link-color);
-      font-weight: bold;
+    .search-container {
+      text-align: center;
+      margin: 30px 0;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .search-container input {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
 
     .section {
@@ -93,40 +99,65 @@
     .section-content ul {
       padding: 0;
       margin: 0;
+      list-style-type: none;
+    }
+
+    .section-content li {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .arrow {
       transition: transform 0.3s ease;
+      display: inline-block;
     }
 
     .arrow.rotate {
       transform: rotate(90deg);
     }
 
-    .note {
-      text-align: center;
-      margin-top: 20px;
-      color: #555;
-    }
+    @keyframes fadeInPage {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
 
-    .note b {
-      color: #555;
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 
 <body>
+
   <h1>🔬 清大化學系考古題</h1>
   <p class="note">
-    有任何 bug 或資料想提供請寄 <b>microdaery@gapp.nthu.edu.tw</b><br>也歡迎 clone 或 merge 哈哈
+    有任何 bug 或資料想提供請寄 <b>microdaery@gapp.nthu.edu.tw</b><br>也歡迎 clone 或 merge
   </p>
   <p class="note">
     原文書電子檔和解答我不敢放，自己找吧 哈哈
   </p>
 
+  <div class="search-container">
+    <input type="text" id="searchBox" placeholder="🔍 搜尋課程名稱..." oninput="filterCourses()">
+  </div>
+
+  <!-- 各分類區塊 -->
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>📚 大一必修</strong></span><span class="arrow">▶</span>
+      <span><strong>📚 大一必修</strong></span><span class="arrow">▸</span>
     </div>
     <div class="section-content">
       <ul>
@@ -139,11 +170,11 @@
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>🧪 化學系必修</strong></span><span class="arrow">▶</span>
+      <span><strong>🧪 化學系必修</strong></span><span class="arrow">▸</span>
     </div>
     <div class="section-content">
       <ul>
-        <li><a href="physical_chem.html">📙 有機化學</a></li>
+        <li><a href="organic_chem.html">📙 有機化學</a></li>
         <li><a href="physical_chem.html">📙 物理化學</a></li>
         <li><a href="inorganic_chem.html">📕 無機化學</a></li>
         <li><a href="analytical_chem.html">📗 分析化學</a></li>
@@ -154,43 +185,51 @@
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>🎓 化學系選修</strong></span><span class="arrow">▶</span>
+      <span><strong>🎓 化學系選修</strong></span><span class="arrow">▸</span>
     </div>
     <div class="section-content">
       <ul>
-        <li><a href="#">選修課程1</a></li>
-        <li><a href="#">選修課程2</a></li>
+        <li><a href="organic_chem.html">📙 化學數學</a></li>
+        <li><a href="organic_chem.html">📙 光譜分析</a></li>
+        <li><a href="organic_chem.html">📙 有機化學三</a></li>
+        <li><a href="organic_chem.html">📙 材料化學導論</a></li>
+        <li><a href="organic_chem.html">📙 物理化學三</a></li>
       </ul>
     </div>
   </div>
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>🏛️ 化學所課程</strong></span><span class="arrow">▶</span>
+      <span><strong>🏛️ 化學所課程</strong></span><span class="arrow">▸</span>
     </div>
     <div class="section-content">
       <ul>
-        <li><a href="#">研究所課程1</a></li>
-        <li><a href="#">研究所課程2</a></li>
+        <li><a href="organic_chem.html">📙 統計熱力學</a></li>
+        <li><a href="organic_chem.html">📙 化學動力學</a></li>
+        <li><a href="organic_chem.html">📙 生物無機化學</a></li>
+        <li><a href="organic_chem.html">📙 材料化學分析技術</a></li>
+        <li><a href="organic_chem.html">📙 觸媒化學</a></li>
       </ul>
     </div>
   </div>
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>🔬 化學系實驗</strong></span><span class="arrow">▶</span>
+      <span><strong>🔬 化學系實驗</strong></span><span class="arrow">▸</span>
     </div>
     <div class="section-content">
       <ul>
-        <li><a href="chem/chem_lab/chem_lab.html">🧪 化學實驗</a></li>
+        <li><a href="organic_chem.html">📙 分析化學實驗</a></li>
         <li><a href="chem/physical_chem_lab/physical_chem_lab.html">🧪 物理化學實驗</a></li>
+        <li><a href="organic_chem.html">📙 有機化學實驗</a></li>
+        <li><a href="organic_chem.html">📙 普通化學實驗</a></li>
       </ul>
     </div>
   </div>
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>📘 物理系</strong></span><span class="arrow">▶</span>
+      <span><strong>📘 物理系</strong></span><span class="arrow">▸</span>
     </div>
     <div class="section-content">
       <ul>
@@ -202,27 +241,31 @@
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>💻 資工系</strong></span><span class="arrow">▶</span>
+      <span><strong>💻 資工系</strong></span><span class="arrow">▸</span>
     </div>
     <div class="section-content">
       <ul>
-        <li><a href="#">資工系課程1</a></li>
-        <li><a href="#">資工系課程2</a></li>
+        <li><a href="organic_chem.html">📙 計算機程式設計</a></li>
+        <li><a href="organic_chem.html">📙 資料結構</a></li>
       </ul>
     </div>
   </div>
 
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
-      <span><strong>🌱 通識</strong></span><span class="arrow">▶</span>
+      <span><strong>🌱 通識</strong></span><span class="arrow">▸</span>
     </div>
     <div class="section-content">
       <ul>
-        <li><a href="math.html">📐 通識課程</a></li>
+        <li><a href="math.html">📐 九章算數</a></li>
+        <li><a href="math.html">📐 工程倫理</a></li>
+        <li><a href="math.html">📐 環安演習講座</a></li>
+        <li><a href="math.html">📐 臨床醫學影像概論</a></li>
       </ul>
     </div>
   </div>
 
+  <!-- JavaScript for toggle & search -->
   <script>
     function toggleSection(header) {
       const content = header.nextElementSibling;
@@ -231,7 +274,7 @@
       const isOpen = content.classList.contains('open');
 
       if (isOpen) {
-        content.style.height = content.scrollHeight + 'px'; // 先設定高度
+        content.style.height = content.scrollHeight + 'px';
         requestAnimationFrame(() => {
           content.style.height = '0px';
         });
@@ -250,12 +293,56 @@
 
       content.addEventListener('transitionend', function handler() {
         if (content.classList.contains('open')) {
-          content.style.height = 'auto'; // 清除高度限制
+          content.style.height = 'auto';
         }
         content.removeEventListener('transitionend', handler);
       });
     }
-  </script>
-</body>
 
+    function filterCourses() {
+      const input = document.getElementById('searchBox').value.toLowerCase().trim();
+      const allSections = document.querySelectorAll('.section');
+
+      allSections.forEach(section => {
+        let hasVisible = false;
+        const items = section.querySelectorAll('li');
+        const content = section.querySelector('.section-content');
+        const arrow = section.querySelector('.arrow');
+
+        items.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          const match = text.includes(input);
+          item.style.display = match ? 'list-item' : 'none';
+          if (match) hasVisible = true;
+        });
+
+        if (input !== '') {
+          if (hasVisible) {
+            content.classList.add('open');
+            content.style.height = 'auto';
+            arrow.classList.add('rotate');
+          } else {
+            content.classList.remove('open');
+            content.style.height = '0px';
+            arrow.classList.remove('rotate');
+          }
+        } else {
+          // Reset to default
+          content.classList.remove('open');
+          content.style.height = '0px';
+          arrow.classList.remove('rotate');
+          items.forEach(item => item.style.display = 'list-item');
+        }
+
+        content.addEventListener('transitionend', function handler() {
+          if (content.classList.contains('open')) {
+            content.style.height = 'auto';
+          }
+          content.removeEventListener('transitionend', handler);
+        });
+      });
+    }
+  </script>
+
+</body>
 </html>
