@@ -8,14 +8,6 @@ const pageData = {
         { name: "期中考 II", file: "../midterm_template.html?subject=spectrometry&exam=midterm2" },
         { name: "期末考", file: "../midterm_template.html?subject=spectrometry&exam=midterm3" }
       ]
-    },
-    {
-      name: "下學期",
-      files: [
-        { name: "期中考 I", file: "../midterm_template.html?subject=organic_chem&exam=midterm1b" },
-        { name: "期中考 II", file: "../midterm_template.html?subject=organic_chem&exam=midterm2b" },
-        { name: "期末考", file: "../midterm_template.html?subject=organic_chem&exam=finalb" }
-      ]
     }
   ]
 };
