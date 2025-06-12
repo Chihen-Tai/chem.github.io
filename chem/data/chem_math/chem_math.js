@@ -4,9 +4,7 @@ const pageData = {
     {
       name: "作業",
       files: [
-        { name: "作業 1", file: "../assignment_template.html?subject=chem_math&assignment=assignment1" },
-        { name: "作業 2", file: "../assignment_template.html?subject=chem_math&assignment=assignment2" },
-        { name: "作業 3", file: "../assignment_template.html?subject=chem_math&assignment=assignment3" }
+        { name: "作業", file: "../assignment_template.html?subject=chem_math&assignment=assignment1" }
       ]
     },
     {
