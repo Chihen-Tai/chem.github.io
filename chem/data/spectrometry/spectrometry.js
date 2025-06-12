@@ -1,12 +1,12 @@
 const pageData = {
-  title: "有機化學 考古題",
+  title: "光譜分析 考古題",
   semesters: [
     {
       name: "上學期",
       files: [
-        { name: "期中考 I", file: "../midterm_template.html?subject=organic_chem&exam=midterm1" },
-        { name: "期中考 II", file: "../midterm_template.html?subject=organic_chem&exam=midterm2" },
-        { name: "期末考", file: "../midterm_template.html?subject=organic_chem&exam=midterm3" }
+        { name: "期中考 I", file: "../midterm_template.html?subject=spectrometry&exam=midterm1" },
+        { name: "期中考 II", file: "../midterm_template.html?subject=spectrometry&exam=midterm2" },
+        { name: "期末考", file: "../midterm_template.html?subject=spectrometry&exam=midterm3" }
       ]
     },
     {

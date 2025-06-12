@@ -1,5 +1,5 @@
 const pageData = {
-  title: "有機化學 考古題",
+  title: "普通物理 考古題",
   semesters: [
     {
       name: "上學期",
